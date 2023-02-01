@@ -1,8 +1,7 @@
 let numeroSecreto = parseInt(Math.random() * 1001);
 let numeroChute = null;
-let contador = null;
 
-while (numeroChute != numeroSecreto) {
+for (let contador = 0; numeroChute != numeroSecreto; contador++) {
   let tentativa = (contador += 1);
   numeroChute = parseInt(prompt("Digite um numero entre 0 e 1000"));
 
@@ -16,3 +15,9 @@ while (numeroChute != numeroSecreto) {
     alert(`Tentativa de numero ${tentativa}, tente outra vez `);
   }
 }
+
+
+// while (numeroChute != numeroSecreto) {
+
+// }
+
