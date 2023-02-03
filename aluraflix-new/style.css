@@ -39,6 +39,10 @@ body {
   max-height: 250px;
 }
 
+#listaFilmes h3 {
+  color: #ffffff;
+}
+
 .form-wrapper {
   margin: 0 0 15px;
 }
@@ -46,6 +50,7 @@ body {
 .form-wrapper input {
   display: block;
   margin: 0 auto;
+  margin-top: 10px;
   padding: 10px 15px;
 }
 
