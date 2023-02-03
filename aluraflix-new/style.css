@@ -39,6 +39,12 @@ body {
   max-height: 250px;
 }
 
+#listaFilmes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #listaFilmes h3 {
   color: #ffffff;
 }
