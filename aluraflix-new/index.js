@@ -1,6 +1,6 @@
-function adicionarFilme() {
-  const listaFilmes = [];
+const listaFilmes = [];
 
+function adicionarFilme() {
   const filmeFavorito = document.getElementById("filme").value;
   const nomefilme = document.getElementById("nome").value;
   const trailerFilme = document.getElementById("trailer").value;
@@ -14,18 +14,21 @@ function adicionarFilme() {
   if (
     filmeFavorito.endsWith("jpg") ||
     filmeFavorito.endsWith("png") ||
-    (filmeFavorito.endsWith("jpeg") ||
-      (filmeFavorito != "" || nomefilme != "" || trailerFilme != ""))
+    filmeFavorito.endsWith("jpeg") ||
+    filmeFavorito != "" ||
+    nomefilme != "" ||
+    trailerFilme != ""
   ) {
     listaFilmes.push(filme);
 
-    mostrarFilmes(listaFilmes);
+    renderizarFilmes();
     limparInputs();
   }
 }
 
-function mostrarFilmes(listaFilmes) {
+function renderizarFilmes() {
   const divFilmes = document.getElementById("listaFilmes");
+  divFilmes.innerHTML = "";
 
   for (let i = 0; i < listaFilmes.length; i++) {
     divFilmes.innerHTML =
@@ -46,9 +49,7 @@ function limparInputs() {
 }
 
 function removerFilme() {
-  const divFilmes = document.getElementById("listaFilmes");
-
-  divFilmes.innerHTML = "";
-
+  listaFilmes.pop();
   limparInputs();
+  renderizarFilmes();
 }
