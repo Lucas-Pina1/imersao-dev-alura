@@ -11,14 +11,15 @@ function adicionarFilme() {
     trailer: trailerFilme,
   };
 
-  if (
+  const seForUmaImagem =
     filmeFavorito.endsWith("jpg") ||
     filmeFavorito.endsWith("png") ||
-    filmeFavorito.endsWith("jpeg") ||
-    filmeFavorito != "" ||
-    nomefilme != "" ||
-    trailerFilme != ""
-  ) {
+    filmeFavorito.endsWith("jpeg");
+
+  const seInputsForVazios =
+    filmeFavorito != "" || nomefilme != "" || trailerFilme != "";
+
+  if (seForUmaImagem || seInputsForVazios) {
     listaFilmes.push(filme);
 
     renderizarFilmes();
