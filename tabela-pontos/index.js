@@ -31,9 +31,42 @@ const jogadores = [
 
 renderizarTabela();
 
-function adicionarJogador() {} // parei aqui
+function adicionarJogador() {
+  const valorInputJogador = document.getElementById("jogador").value;
 
-function resetarPontos() {} // parei aqui
+  const jogador = {
+    nome: valorInputJogador,
+    vitoria: 0,
+    empate: 0,
+    derrota: 0,
+    pontos: 0,
+  };
+
+  if (valorInputJogador != "") {
+    jogadores.push(jogador);
+
+    renderizarTabela();
+
+    document.getElementById("jogador").value = "";
+  } else {
+    alert("nenhum jogador indentidicado");
+  }
+}
+
+function removerJogador() {
+  jogadores.pop();
+  renderizarTabela();
+}
+
+function resetarPontos() {
+  jogadores.forEach((jogador) => {
+    jogador.vitoria = 0;
+    jogador.empate = 0;
+    jogador.derrota = 0;
+    jogador.pontos = 0;
+  });
+  renderizarTabela();
+}
 
 function renderizarTabela() {
   const elementoTabela = document.getElementById("tabelaJogadores");
@@ -48,7 +81,7 @@ function renderizarTabela() {
       <td>${jogadores[index].derrota}</td>
       <td>${jogadores[index].pontos}</td>
       <td><button onClick="adicionarVitoria(${index})">Vitória</button></td>
-      <td><button onClick="adicionarEmpate(${index})">Empate</button></td>
+      <td><button onClick="adicionarEmpate()">Empate</button></td>
       <td><button onClick="adicionarDerrota(${index})">Derrota</button></td>
     </tr>
 `;
@@ -56,20 +89,20 @@ function renderizarTabela() {
 }
 
 function adicionarVitoria(index) {
-  const jogadorAtual = jogadores[index];
-  jogadorAtual.vitoria++;
-  jogadorAtual.pontos += 3;
+  jogadores[index].vitoria++;
+  jogadores[index].pontos += 3;
   renderizarTabela();
 }
 
-function adicionarEmpate(index) {
-  const jogadorAtual = jogadores[index];
-  jogadorAtual.empate++;
+function adicionarEmpate() {
+  jogadores.forEach((jogador) => {
+    jogador.empate++;
+    jogador.pontos++;
+  });
   renderizarTabela();
 }
 
 function adicionarDerrota(index) {
-  const jogadorAtual = jogadores[index];
-  jogadorAtual.derrota++;
+  jogadores[index].derrota++;
   renderizarTabela();
 }
