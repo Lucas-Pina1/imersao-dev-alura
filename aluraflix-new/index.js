@@ -1,25 +1,25 @@
 const listaFilmes = [];
 
 function adicionarFilme() {
-  const filmeFavorito = document.getElementById("filme").value;
+  const imagemFilme = document.getElementById("filme").value;
   const nomefilme = document.getElementById("nome").value;
   const trailerFilme = document.getElementById("trailer").value;
 
   const filme = {
-    imagem: filmeFavorito,
+    imagem: imagemFilme,
     titulo: nomefilme,
     trailer: trailerFilme,
   };
 
   const seForUmaImagem =
-    filmeFavorito.endsWith("jpg") ||
-    filmeFavorito.endsWith("png") ||
-    filmeFavorito.endsWith("jpeg");
+    imagemFilme.endsWith("jpg") ||
+    imagemFilme.endsWith("png") ||
+    imagemFilme.endsWith("jpeg");
 
-  const seInputsForVazios =
-    filmeFavorito != "" || nomefilme != "" || trailerFilme != "";
+  const seInputsNaoForVazios =
+    imagemFilme != "" || nomefilme != "" || trailerFilme != "";
 
-  if (seForUmaImagem || seInputsForVazios) {
+  if (seForUmaImagem || seInputsNaoForVazios) {
     listaFilmes.push(filme);
 
     renderizarFilmes();
