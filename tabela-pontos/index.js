@@ -31,6 +31,10 @@ const jogadores = [
 
 renderizarTabela();
 
+function adicionarJogador() {} // parei aqui
+
+function resetarPontos() {} // parei aqui
+
 function renderizarTabela() {
   const elementoTabela = document.getElementById("tabelaJogadores");
   elementoTabela.innerHTML = "";
